@@ -1,63 +1,64 @@
 <html>
-<head>
-<title>JavaScript Animation</title>
-<script src = "biography.js"></script>
-<script type = "text/javascript">
-var imgObj = null;
 
-function init() {
-imgObj = document.getElementById('myImage');
-imgObj.style.position= 'relative';
-imgObj.style.left = '0px';
-imgObj.style.top = '0px';
-}
-function moveRight() {
-imgObj.style.left = parseInt(imgObj.style.left) + 10 +
-'px';
-}
-function moveLeft() {
-imgObj.style.left = parseInt(imgObj.style.left) - 10 +
-'px';
-}
-function moveUp() {
-imgObj.style.top = parseInt(imgObj.style.top) - 10 +
-'px';
-}
-function moveDown() {
-imgObj.style.top = parseInt(imgObj.style.top) + 10 +
-'px';
-}
-window.onload = init;
-window.onkeydown = function(e) {
-switch (e.key) {
-case 'ArrowLeft':
-moveLeft();
-break;
-case 'ArrowUp':
-moveUp();
-break;
-case 'ArrowRight':
-moveRight();
-break;
-case 'ArrowDown':
-moveDown();
-break;
-}
-};
-</script>
+<head>
+    <title>JavaScript</title>
+
+    <script type="text/javascript">
+        var imgObj = null;
+
+        function init() {
+            imgObj = document.getElementById('myImage');
+            imgObj.style.position = 'relative';
+            imgObj.style.left = '0px';
+            imgObj.style.top = '0px';
+        }
+        function moveRight() {
+            imgObj.style.left = parseInt(imgObj.style.left) + 10 +
+                'px';
+        }
+        function moveLeft() {
+            imgObj.style.left = parseInt(imgObj.style.left) - 10 +
+                'px';
+        }
+        function moveUp() {
+            imgObj.style.top = parseInt(imgObj.style.top) - 10 +
+                'px';
+        }
+        function moveDown() {
+            imgObj.style.top = parseInt(imgObj.style.top) + 10 +
+                'px';
+        }
+        window.onload = init;
+        window.onkeydown = function (e) {
+            switch (e.key) {
+                case 'ArrowLeft':
+                    moveLeft();
+                    break;
+                case 'ArrowUp':
+                    moveUp();
+                    break;
+                case 'ArrowRight':
+                    moveRight();
+                    break;
+                case 'ArrowDown':
+                    moveDown();
+                    break;
+            }
+        };
+    </script>
 </head>
+
 <body>
-<form>
-<img id = "myImage" src = "/images/html.gif" />
-<p>Click button below to move the image to right</p>
-<input type = "button" value = "right" onclick =
-"moveRight();" />
-<input type = "button" value = "left" onclick =
-"moveLeft();" />
-<input type = "button" value = "up" onclick =
-"moveUp();" />
-<input type = "button" value = "down" onclick =
-"moveDown();" />
-</form>
+    <script src="biography.js"></script>
+    <form>
+        <img id="myImage" src="/images/html.gif" />
+        <p>Click button below to move the image to right</p>
+        <input type="button" value="right" onclick="moveRight();" />
+        <input type="button" value="left" onclick="moveLeft();" />
+        <input type="button" value="up" onclick="moveUp();" />
+        <input type="button" value="down" onclick="moveDown();" />
+    </form>
+
 </body>
+
 </html>

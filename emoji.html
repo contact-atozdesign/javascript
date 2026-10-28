@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>emoji</title>
+    <style>
+        canvas {
+            border: 1px solid grey;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+        <!-- 1. Create the Canvas element -->
+    <canvas id="canvas" width="300" height="300"></canvas>
+
+    <script>
+        // 2. Target the canvas and get its 2D rendering context
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // 3. Define circle properties
+        const centerX = canvas.width / 2;  // Center X coordinate
+        const centerY = canvas.height / 2; // Center Y coordinate
+        const radius = 100;                 // Circle radius
+
+        // 4. Draw an outlined (stroked) circle
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = 'grey'; // Grey outline
+        ctx.stroke();
+        ctx.fillStyle = 'yellow'; // Yellow fill
+        ctx.fill();
+        
+        // 5. Draw the eyes
+        ctx.fillStyle = 'black';
+        ctx.beginPath();
+        ctx.arc(centerX - 30, centerY - 30, 10, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(centerX + 30, centerY - 30, 10, 0, 2 * Math.PI);
+        ctx.fill();
+
+        // 6. Draw the mouth
+        ctx.beginPath();
+        ctx.arc(centerX, centerY + 30, 30, 0, Math.PI);
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = 'black';
+        ctx.stroke();
+    </script>
+</body>
+</html>
