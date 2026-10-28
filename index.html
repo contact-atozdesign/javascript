@@ -1,64 +1,89 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>JavaScript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Tabs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
 
-    <script type="text/javascript">
-        var imgObj = null;
+        .tabs {
+            border-bottom: 2px solid #ccc;
+        }
 
-        function init() {
-            imgObj = document.getElementById('myImage');
-            imgObj.style.position = 'relative';
-            imgObj.style.left = '0px';
-            imgObj.style.top = '0px';
+        .tab-button {
+            border: none;
+            background: none;
+            padding: 10px 16px;
+            cursor: pointer;
+            font-size: 16px;
         }
-        function moveRight() {
-            imgObj.style.left = parseInt(imgObj.style.left) + 10 +
-                'px';
+
+        .tab-button.active {
+            border-bottom: 3px solid #007BFF;
+            font-weight: bold;
         }
-        function moveLeft() {
-            imgObj.style.left = parseInt(imgObj.style.left) - 10 +
-                'px';
+
+        .tab-panel {
+            display: none;
+            padding-top: 16px;
         }
-        function moveUp() {
-            imgObj.style.top = parseInt(imgObj.style.top) - 10 +
-                'px';
+
+        .tab-panel.active {
+            display: block;
         }
-        function moveDown() {
-            imgObj.style.top = parseInt(imgObj.style.top) + 10 +
-                'px';
+
+        canvas {
+            border: 1px solid grey;
+            background-color: white;
         }
-        window.onload = init;
-        window.onkeydown = function (e) {
-            switch (e.key) {
-                case 'ArrowLeft':
-                    moveLeft();
-                    break;
-                case 'ArrowUp':
-                    moveUp();
-                    break;
-                case 'ArrowRight':
-                    moveRight();
-                    break;
-                case 'ArrowDown':
-                    moveDown();
-                    break;
-            }
-        };
-    </script>
+    </style>
+    <script src="biography.js" defer></script>
+    <script src="emoji.js" defer></script>
+    <script src="gif.js" defer></script>
 </head>
 
 <body>
-    <script src="biography.js"></script>
-    <form>
-        <img id="myImage" src="/images/html.gif" />
-        <p>Click button below to move the image to right</p>
-        <input type="button" value="right" onclick="moveRight();" />
-        <input type="button" value="left" onclick="moveLeft();" />
-        <input type="button" value="up" onclick="moveUp();" />
-        <input type="button" value="down" onclick="moveDown();" />
-    </form>
+    <nav class="tabs" aria-label="Page tabs">
+        <button class="tab-button active" data-tab="biography" type="button">Biography</button>
+        <button class="tab-button" data-tab="emoji" type="button">Emoji</button>
+        <button class="tab-button" data-tab="gif" type="button">GIF Form</button>
+    </nav>
 
+    <section id="biography" class="tab-panel active" role="tabpanel"></section>
+
+    <section id="emoji" class="tab-panel" role="tabpanel">
+        <canvas id="emojiCanvas" width="300" height="300"></canvas>
+    </section>
+
+    <section id="gif" class="tab-panel" role="tabpanel">
+        <form>
+            <img id="myImage" src="/images/html.gif" alt="HTML moving GIF" />
+            <p>Click a button or use the arrow keys to move the image.</p>
+            <input type="button" value="right" onclick="moveRight();" />
+            <input type="button" value="left" onclick="moveLeft();" />
+            <input type="button" value="up" onclick="moveUp();" />
+            <input type="button" value="down" onclick="moveDown();" />
+        </form>
+    </section>
+
+    <script>
+        document.querySelectorAll('.tab-button').forEach(function (button) {
+            button.addEventListener('click', function () {
+                document.querySelectorAll('.tab-button').forEach(function (tabButton) {
+                    tabButton.classList.remove('active');
+                });
+                document.querySelectorAll('.tab-panel').forEach(function (panel) {
+                    panel.classList.remove('active');
+                });
+
+                button.classList.add('active');
+                document.getElementById(button.dataset.tab).classList.add('active');
+            });
+        });
+    </script>
 </body>
-
 </html>

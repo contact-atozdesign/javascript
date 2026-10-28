@@ -1,15 +1,16 @@
-// in this file, write some code that will diplay some text using a paragraph element. You can use JavaScript to create the paragraph and an image.
-document.addEventListener("DOMContentLoaded", function() {
-console.log("DOM fully loaded and parsed");
-        var body = document.body;
-    var p = document.createElement("p");
+document.addEventListener("DOMContentLoaded", function () {
+    const biographyPanel = document.getElementById("biography");
 
-    var img = document.createElement("img");
-    img.src = "https://via.placeholder.com/300";
-    img.style.width = "300px";
-    img.style.height = "auto";
-        body.appendChild(p);
-        body.appendChild(img);
+    const paragraph = document.createElement("p");
+    paragraph.textContent = "This content was created by biography.js.";
+    paragraph.style.color = "red";
 
-    p.innerHTML = '<div style=color:red;">This is the context created by JavaScript.</div>';
+    const image = document.createElement("img");
+    image.src = "https://via.placeholder.com/300";
+    image.alt = "Biography placeholder";
+    image.style.width = "300px";
+    image.style.height = "auto";
+
+    biographyPanel.appendChild(paragraph);
+    biographyPanel.appendChild(image);
 });
