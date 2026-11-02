@@ -1,16 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const biographyPanel = document.getElementById("biography");
+    ["biography", "javascriptBiography"].forEach(function (panelId) {
+        const panel = document.getElementById(panelId);
+        if (!panel) return;
 
-    const paragraph = document.createElement("p");
-    paragraph.textContent = "This content was created by biography.js.";
-    paragraph.style.color = "red";
+        const paragraph = document.createElement("p");
+        paragraph.textContent = "This content was created by biography.js.";
+        paragraph.style.color = "red";
 
-    const image = document.createElement("img");
-    image.src = "https://via.placeholder.com/300";
-    image.alt = "Biography placeholder";
-    image.style.width = "300px";
-    image.style.height = "auto";
+        const image = document.createElement("img");
+        image.src = "https://via.placeholder.com/300";
+        image.alt = "Biography placeholder";
+        image.style.width = "300px";
+        image.style.height = "auto";
 
-    biographyPanel.appendChild(paragraph);
-    biographyPanel.appendChild(image);
+        panel.appendChild(paragraph);
+        panel.appendChild(image);
+    });
 });

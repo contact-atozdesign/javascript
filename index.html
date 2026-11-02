@@ -36,13 +36,14 @@
             display: block;
         }
 
-        .javascript-files {
+        .javascript-results {
             display: grid;
             gap: 10px;
         }
 
-        .javascript-files a {
-            color: #007BFF;
+        .javascript-results canvas,
+        .javascript-results img {
+            display: block;
         }
 
         canvas {
@@ -71,7 +72,7 @@
 
     <section id="gif" class="tab-panel" role="tabpanel">
         <form>
-            <img id="myImage" src="/images/html.gif" alt="HTML moving GIF" />
+            <img id="myImage" class="moving-gif" src="/images/html.gif" alt="HTML moving GIF" />
             <p>Click a button or use the arrow keys to move the image.</p>
             <input type="button" value="right" onclick="moveRight();" />
             <input type="button" value="left" onclick="moveLeft();" />
@@ -81,11 +82,18 @@
     </section>
 
     <section id="javascript" class="tab-panel" role="tabpanel">
-        <h2>JavaScript Files</h2>
-        <div class="javascript-files">
-            <a href="emoji.js">emoji.js</a>
-            <a href="biography.js">biography.js</a>
-            <a href="gif.js">gif.js</a>
+        <h2>JavaScript Results</h2>
+        <div class="javascript-results">
+            <canvas id="javascriptEmojiCanvas" width="300" height="300"></canvas>
+            <div id="javascriptBiography"></div>
+            <form>
+                <img class="moving-gif" src="/images/html.gif" alt="HTML moving GIF" />
+                <p>Click a button or use the arrow keys to move the image.</p>
+                <input type="button" value="right" onclick="moveRight();" />
+                <input type="button" value="left" onclick="moveLeft();" />
+                <input type="button" value="up" onclick="moveUp();" />
+                <input type="button" value="down" onclick="moveDown();" />
+            </form>
         </div>
     </section>
 
