@@ -36,6 +36,15 @@
             display: block;
         }
 
+        .javascript-files {
+            display: grid;
+            gap: 10px;
+        }
+
+        .javascript-files a {
+            color: #007BFF;
+        }
+
         canvas {
             border: 1px solid grey;
             background-color: white;
@@ -48,16 +57,17 @@
 
 <body>
     <nav class="tabs" aria-label="Page tabs">
-        <button class="tab-button active" data-tab="biography" type="button">Biography</button>
-        <button class="tab-button" data-tab="emoji" type="button">Emoji</button>
+        <button class="tab-button active" data-tab="emoji" type="button">Emoji</button>
+        <button class="tab-button" data-tab="biography" type="button">Biography</button>
         <button class="tab-button" data-tab="gif" type="button">GIF Form</button>
+        <button class="tab-button" data-tab="javascript" type="button">JavaScript</button>
     </nav>
 
-    <section id="biography" class="tab-panel active" role="tabpanel"></section>
-
-    <section id="emoji" class="tab-panel" role="tabpanel">
+    <section id="emoji" class="tab-panel active" role="tabpanel">
         <canvas id="emojiCanvas" width="300" height="300"></canvas>
     </section>
+
+    <section id="biography" class="tab-panel" role="tabpanel"></section>
 
     <section id="gif" class="tab-panel" role="tabpanel">
         <form>
@@ -68,6 +78,15 @@
             <input type="button" value="up" onclick="moveUp();" />
             <input type="button" value="down" onclick="moveDown();" />
         </form>
+    </section>
+
+    <section id="javascript" class="tab-panel" role="tabpanel">
+        <h2>JavaScript Files</h2>
+        <div class="javascript-files">
+            <a href="emoji.js">emoji.js</a>
+            <a href="biography.js">biography.js</a>
+            <a href="gif.js">gif.js</a>
+        </div>
     </section>
 
     <script>
