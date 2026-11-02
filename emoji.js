@@ -1,29 +1,26 @@
 //create canvas
-function createEmoji(canvasId) {
-    canvas = document.getElementById(canvasId);
-    ctx = canvas.getContext('2d');
-    xOrigin = canvas.width / 2;
-    yOrigin = canvas.height / 2;
+function createEmoji(tab) {
+    const canvas = document.getElementById(tab);
+    const ctx = canvas.getContext('2d');
+
+//define location and time
+    const xOrigin = canvas.width / 2;
+    const yOrigin = canvas.height / 2;
     let xDiff = 0;
     let yDiff = 0;
-    drawEmoji(xDiff, yDiff);
+    drawEmoji(ctx, xOrigin, yOrigin, xDiff, yDiff);
 
-    interval = setInterval(function () {
-        clearEmoji();
+    setInterval(function () {
+        clearEmoji(ctx, canvas);
         xDiff += 10;
         yDiff += 10;
-        drawEmoji(xDiff, yDiff);
+        drawEmoji(ctx, xOrigin, yOrigin, xDiff, yDiff);
     }, 1000);
 }
 
-//define location and time
-let xOrigin;
-let yOrigin;
-let interval = null;
-
 const radius = 100;
 
-function drawEmoji(xDiff, yDiff) {
+function drawEmoji(ctx, xOrigin, yOrigin, xDiff, yDiff) {
     ctx.beginPath();
     ctx.arc(xOrigin + xDiff, yOrigin + yDiff, radius, 0, 2 * Math.PI);
     ctx.lineWidth = 2;
@@ -49,13 +46,12 @@ function drawEmoji(xDiff, yDiff) {
     ctx.stroke();
 }
 
-function clearEmoji() {
+function clearEmoji(ctx, canvas) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
-let canvas = null;
-let ctx = null;
+
 document.addEventListener('DOMContentLoaded', function () {
 
-    createEmoji('emojiCanvas');
-    createEmoji('javascriptEmojiCanvas');
+    createEmoji('emojitab');
+    createEmoji('javascripttabEmoji');
 });
