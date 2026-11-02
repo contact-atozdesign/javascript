@@ -64,39 +64,6 @@
         <button class="tab-button" data-tab="javascript" type="button">JavaScript</button>
     </nav>
 
-    <section id="emoji" class="tab-panel active" role="tabpanel">
-        <canvas id="emojiCanvas" width="300" height="300"></canvas>
-    </section>
-
-    <section id="biography" class="tab-panel" role="tabpanel"></section>
-
-    <section id="gif" class="tab-panel" role="tabpanel">
-        <form>
-            <img id="myImage" class="moving-gif" src="/images/html.gif" alt="HTML moving GIF" />
-            <p>Click a button or use the arrow keys to move the image.</p>
-            <input type="button" value="right" onclick="moveRight();" />
-            <input type="button" value="left" onclick="moveLeft();" />
-            <input type="button" value="up" onclick="moveUp();" />
-            <input type="button" value="down" onclick="moveDown();" />
-        </form>
-    </section>
-
-    <section id="javascript" class="tab-panel" role="tabpanel">
-        <h2>JavaScript Results</h2>
-        <div class="javascript-results">
-            <canvas id="javascriptEmojiCanvas" width="300" height="300"></canvas>
-            <div id="javascriptBiography"></div>
-            <form>
-                <img class="moving-gif" src="/images/html.gif" alt="HTML moving GIF" />
-                <p>Click a button or use the arrow keys to move the image.</p>
-                <input type="button" value="right" onclick="moveRight();" />
-                <input type="button" value="left" onclick="moveLeft();" />
-                <input type="button" value="up" onclick="moveUp();" />
-                <input type="button" value="down" onclick="moveDown();" />
-            </form>
-        </div>
-    </section>
-
     <script>
         document.querySelectorAll('.tab-button').forEach(function (button) {
             button.addEventListener('click', function () {
@@ -112,5 +79,24 @@
             });
         });
     </script>
+
+    <section id="emoji" class="tab-panel active" role="tabpanel">
+        <canvas id="emojiCanvas" width="300" height="300"></canvas>
+    </section>
+
+    <section id="biography" class="tab-panel" role="tabpanel"></section>
+
+    <section id="gif" class="tab-panel" role="tabpanel">
+        <div id="gifFormPanel"></div>
+    </section>
+
+    <section id="javascript" class="tab-panel" role="tabpanel">
+        <h2>JavaScript Results</h2>
+        <div class="javascript-results">
+            <canvas id="javascriptEmojiCanvas" width="300" height="300"></canvas>
+            <div id="javascriptBiography"></div>
+            <div id="javascriptGifPanel"></div>
+        </div>
+    </section>
 </body>
 </html>
